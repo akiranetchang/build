@@ -41,7 +41,8 @@ case "${BRANCH}" in
 		declare -g LINUXCONFIG="linux-uefi-${LINUXFAMILY}-${BRANCH}-ak"
 		declare -g KERNELSOURCE='https://github.com/akiranetchang/linux-ak.git'
 		#declare -g KERNELBRANCH='branch:linux-ak-5.15.y'
-		declare -g KERNELBRANCH='branch:linux-5.15.y'
+		#declare -g KERNELBRANCH='branch:linux-5.15.y'
+		declare -g KERNELBRANCH='branch:pi-5.15.113'
 		declare -g KERNELPATCHDIR="legacy"		
 		;;
 
