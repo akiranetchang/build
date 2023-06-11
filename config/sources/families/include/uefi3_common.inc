@@ -10,6 +10,7 @@ declare -g SERIALCON="tty1"                          # Cant reasonably expect UE
 declare -g SKIP_BOOTSPLASH="yes"                     # No splash.
 declare -g UEFI_GRUB_TIMEOUT=${UEFI_GRUB_TIMEOUT:-3} # Default 3-seconds timeout for GRUB menu.
 declare -g BOARD_FIRMWARE_INSTALL="-full"            # Install full firmware for UEFI boards
+ATF_TARGET_MAP='PLATFORM=generic ;;build/platform/generic/firmware/fw_dynamic.bin'
 case "${BRANCH}" in
 
 	ddk)
@@ -45,6 +46,9 @@ case "${BRANCH}" in
 		declare -g KERNELBRANCH='branch:pi-5.15.113'
 		declare -g KERNELPATCHDIR="legacy"		
 		ATF_TARGET_MAP='PLATFORM=generic ;;build/platform/generic/firmware/fw_dynamic.bin'
+		BOOTSOURCE='https://github.com/akiranetchang/u-boot-ak.git'
+		BOOTBRANCH='branch:v2022.10-pi'
+		BOOTPATCHDIR="legacy"
 		;;
 
 	current)
@@ -67,6 +71,8 @@ case "${BRANCH}" in
 		declare -g KERNEL_MAJOR_MINOR="6.4" # Major and minor versions of this kernel.
 		declare -g KERNELSOURCE='https://github.com/akiranetchang/linux.git'
 		declare -g KERNELBRANCH='branch:v6.4-rc'		
+
+		declare -g BOOTBRANCH="${BOOTBRANCH_BOARD:-"tag:v2023.04"}"
 		;;
 esac
 
