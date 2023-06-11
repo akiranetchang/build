@@ -44,6 +44,7 @@ case "${BRANCH}" in
 		#declare -g KERNELBRANCH='branch:linux-5.15.y'
 		declare -g KERNELBRANCH='branch:pi-5.15.113'
 		declare -g KERNELPATCHDIR="legacy"		
+		ATF_TARGET_MAP='PLATFORM=generic ;;build/platform/generic/firmware/fw_dynamic.bin'
 		;;
 
 	current)
@@ -63,9 +64,9 @@ case "${BRANCH}" in
 		#declare -g KERNELBRANCH='branch:linux-6.3.y'
 		#declare -g KERNELPATCHDIR="uefi-${LINUXFAMILY}-${BRANCH}" # Might be empty.
 		declare -g KERNELPATCHDIR="uefi-${LINUXFAMILY}-${BRANCH}" # Might be empty.
-	    declare -g KERNEL_MAJOR_MINOR="6.4" # Major and minor versions of this kernel.
-	    declare -g KERNELSOURCE='https://github.com/akiranetchang/linux.git'
-        declare -g KERNELBRANCH='branch:v6.4-rc'		
+		declare -g KERNEL_MAJOR_MINOR="6.4" # Major and minor versions of this kernel.
+		declare -g KERNELSOURCE='https://github.com/akiranetchang/linux.git'
+		declare -g KERNELBRANCH='branch:v6.4-rc'		
 		;;
 esac
 
