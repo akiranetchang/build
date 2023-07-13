@@ -74,7 +74,77 @@ Break.Delete 0x080004D8 	;delete breakpoint
 
 ;Break.Set 0x080008C2 /P /Onchip	;SPL spl_boot_device
 ;Break.Set spl_boot_device /P /Onchip	;SPL spl_boot_device
-Break.Set sifive_serial_probe /P	;SPL sifive_serial_probe u74
+
+Break.Set board_init_f /P	;SPL
+Break.Set spl_early_init /P	;SPL
+
+Break.Set spl_common_init /P	;SPL
+;Break.Set bootstage_init /P	;SPL
+;Break.Set bootstage_start /P	;SPL
+Break.Set fdtdec_setup /P	;SPL
+Break.Set dm_init_and_scan /P	;SPL
+Break.Set dm_init /P	;SPL
+;Break.Set dm_scan /P	;SPL
+
+;
+;;
+;
+
+Break.Set device_bind_by_name /P	;SPL
+Break.Set device_probe /P	;SPL
+Break.Set dm_scan_plat /P	;SPL
+Break.Set lists_bind_drivers /P	;SPL
+Break.Set dm_extended_scan /P	;SPL
+Break.Set dm_scan_fdt /P	;SPL
+Break.Set dm_scan_fdt_node /P	;SPL
+Break.Set lists_bind_fdt /P	;SPL
+;Break.Set sifive_reset_bind /P	;SPL u74
+Break.Set pi_reset_bind /P	;SPL
+Break.Set device_bind_driver_to_node /P	;SPL
+;Break.Set lists_drivers_lookup_name /P	;SPL
+Break.Set device_bind_common /P	;SPL
+Break.Set uclass_get /P	;SPL
+Break.Set dev_set_plat /P	;SPL
+;Break.Set dev_set_ofnode /P	;SPL
+Break.Set uclass_bind_device /P	;SPL
+Break.Set dm_scan_other /P	;SPL
+Break.Set dm_probe_devices /P	;SPL
+Break.Set device_probe /P	;SPL
+Break.Set uclass_first_device /P	;SPL
+
+;
+;;
+;
+;Break.Set sifive_clk_bind /P	;SPL u74
+Break.Set pi_clk_bind /P	;SPL
+Break.Set riscv_cpu_probe /P	;SPL
+Break.Set cpu_probe_all /P	;SPL
+;Break.Set sifive_prci_probe /P	;SPL
+Break.Set pi_prci_probe /P	;SPL
+Break.Set sifive_clint_probe /P	;SPL
+
+Break.Set preloader_console_init /P	;SPL
+Break.Set serial_init /P	;SPL
+Break.Set sifive_serial_probe /P	;SPL
+
+Break.Set spl_board_init_f /P	;SPL
+Break.Set sifive_ddr_probe /P	;SPL
+;Break.Set sifive_reset_probe /P	;SPL
+Break.Set pi_reset_probe /P	;SPL
+Break.Set sifive_gpio_probe /P	;SPL
+Break.Set timer_init /P	;SPL
+
+Break.Set riscv_cpu_setup /P	;SPL
+
+
+Break.Set sifive_spi_probe /P	;SPL
+
+
+
+
+;
+;;
+;
 Break.Set spl_boot_device /P	;SPL spl_boot_device
 Break.Set spl_mmc_load /P	;SPL spl_mmc_load
 ;Break.Set spl_ram_load_image /P	;SPL spl_ram_load_image

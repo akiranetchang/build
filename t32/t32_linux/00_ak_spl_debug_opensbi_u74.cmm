@@ -93,6 +93,35 @@ Break.Set dm_init_and_scan /P	;SPL
 Break.Set dm_init /P	;SPL
 ;Break.Set dm_scan /P	;SPL
 
+;
+;;
+;
+
+Break.Set device_bind_by_name /P	;SPL
+Break.Set device_probe /P	;SPL
+Break.Set dm_scan_plat /P	;SPL
+Break.Set lists_bind_drivers /P	;SPL
+Break.Set dm_extended_scan /P	;SPL
+Break.Set dm_scan_fdt /P	;SPL
+Break.Set dm_scan_fdt_node /P	;SPL
+Break.Set lists_bind_fdt /P	;SPL
+Break.Set sifive_reset_bind /P	;SPL
+Break.Set device_bind_driver_to_node /P	;SPL
+;Break.Set lists_drivers_lookup_name /P	;SPL
+Break.Set device_bind_common /P	;SPL
+Break.Set uclass_get /P	;SPL
+Break.Set dev_set_plat /P	;SPL
+;Break.Set dev_set_ofnode /P	;SPL
+Break.Set uclass_bind_device /P	;SPL
+Break.Set dm_scan_other /P	;SPL
+Break.Set dm_probe_devices /P	;SPL
+Break.Set device_probe /P	;SPL
+Break.Set uclass_first_device /P	;SPL
+
+;
+;;
+;
+
 
 Break.Set sifive_clk_bind /P	;SPL
 Break.Set riscv_cpu_probe /P	;SPL
