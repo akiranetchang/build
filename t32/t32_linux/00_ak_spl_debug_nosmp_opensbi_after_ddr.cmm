@@ -40,8 +40,7 @@ SYSTEM.up
 ;Break.Set 0x08000092 /P /Onchip		;SPL asm icache_enable
 ;Break.Set 0x08000096 /P /Onchip		;SPL asm dcache_enable
 ;Break.Set 0x080001DE /P /Onchip		;SPL arch_cpu_init_dm
-;Break.Set 0x080004D8 /P /Onchip		;SPL board_init_f
-Break.Set 0x080007EC /P /Onchip		;SPL board_init_f u74
+Break.Set 0x080004D8 /P /Onchip		;SPL board_init_f
 ;Break.Set 0x080009A4 /P /Onchip		;SPL spl_early_init
 ;Break.Set 0x0800087E /P /Onchip		;SPL spl_common_init
 ;Break.Set 0x080065B2 /P /Onchip		;SPL dm_init_and_scan
@@ -66,8 +65,7 @@ go
 WAIT !STATE.RUN()
 ;Break.Delete 0x08000000        ;delete breakpoint
 ;Break.Delete 0x080001DE        ;delete breakpoint
-;Break.Delete 0x080004D8 	;delete breakpoint
-Break.Delete 0x080007EC 	;delete breakpoint
+Break.Delete 0x080004D8 	;delete breakpoint
 ;Break.Delete 0x0800031E        ;delete breakpoint
 ;Break.Delete 0x0800077C        ;delete breakpoint
 ;Break.Delete spl_board_init_f+0x18       ;delete breakpoint
