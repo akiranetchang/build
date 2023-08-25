@@ -10,6 +10,7 @@ declare -g SERIALCON="tty1"                          # Cant reasonably expect UE
 declare -g SKIP_BOOTSPLASH="yes"                     # No splash.
 declare -g UEFI_GRUB_TIMEOUT=${UEFI_GRUB_TIMEOUT:-3} # Default 3-seconds timeout for GRUB menu.
 declare -g BOARD_FIRMWARE_INSTALL="-full"            # Install full firmware for UEFI boards
+ATF_TARGET_MAP='PLATFORM=generic ;;build/platform/generic/firmware/fw_dynamic.bin'
 case "${BRANCH}" in
 
 	ddk)
@@ -21,10 +22,33 @@ case "${BRANCH}" in
 	legacy)
 
 		declare -g DISTRO_GENERIC_KERNEL=no
-		declare -g LINUXCONFIG="linux-uefi-${LINUXFAMILY}-${BRANCH}"
-		declare -g KERNEL_MAJOR_MINOR="5.15"                      # Major and minor versions of this kernel. For mainline caching.
-		declare -g KERNELBRANCH="branch:linux-5.15.y"             # Branch or tag to build from. It should match MAJOR_MINOR
+		#declare -g LINUXCONFIG="linux-uefi-${LINUXFAMILY}-${BRANCH}"
+		#declare -g KERNEL_MAJOR_MINOR="5.15"                      # Major and minor versions of this kernel. For mainline caching.
+		#declare -g KERNELBRANCH="branch:linux-5.15.y"             # Branch or tag to build from. It should match MAJOR_MINOR
+		#declare -g KERNELBRANCH="branch:linux-5.15.y"             # Branch or tag to build from. It should match MAJOR_MINOR
 		declare -g KERNELPATCHDIR="uefi-${LINUXFAMILY}-${BRANCH}" # Might be empty.
+		#
+		##
+		#
+		#declare -g KERNEL_MAJOR_MINOR="5.15" # Major and minor versions of this kernel.
+		#declare -g KERNELSOURCE='https://github.com/torvalds/linux.git'
+		#declare -g KERNELBRANCH='tag:v5.15'
+		#declare -g KERNELPATCHDIR="legacy"		
+		#
+		##
+		#
+		declare -g KERNEL_MAJOR_MINOR="5.15" # Major and minor versions of this kernel.
+		#declare -g KERNELSOURCE='git@github.com:akiranetchang/linux-ak.git'
+		declare -g LINUXCONFIG="linux-uefi-${LINUXFAMILY}-${BRANCH}-ak"
+		declare -g KERNELSOURCE='https://github.com/akiranetchang/linux-ak.git'
+		#declare -g KERNELBRANCH='branch:linux-ak-5.15.y'
+		#declare -g KERNELBRANCH='branch:linux-5.15.y'
+		declare -g KERNELBRANCH='branch:pi-5.15.113'
+		declare -g KERNELPATCHDIR="legacy"		
+		ATF_TARGET_MAP='PLATFORM=generic ;;build/platform/generic/firmware/fw_dynamic.bin'
+		BOOTSOURCE='https://github.com/akiranetchang/u-boot-ak.git'
+		BOOTBRANCH='branch:v2022.10-pi'
+		BOOTPATCHDIR="legacy"
 		;;
 
 	current)
@@ -40,10 +64,21 @@ case "${BRANCH}" in
 
 		declare -g DISTRO_GENERIC_KERNEL=no
 		declare -g LINUXCONFIG="linux-uefi-${LINUXFAMILY}-${BRANCH}"
+		#declare -g KERNEL_MAJOR_MINOR="6.3" # Major and minor versions of this kernel.
+		#declare -g KERNELBRANCH='branch:linux-6.3.y'
+		#declare -g KERNELPATCHDIR="uefi-${LINUXFAMILY}-${BRANCH}" # Might be empty.
+		declare -g KERNELPATCHDIR="uefi-${LINUXFAMILY}-${BRANCH}" # Might be empty.
+		#
+		#declare -g KERNEL_MAJOR_MINOR="6.4" # Major and minor versions of this kernel.
+		#declare -g KERNELSOURCE='https://github.com/akiranetchang/linux.git'
+		#declare -g KERNELBRANCH='branch:v6.4-rc'		
+
+		declare -g BOOTBRANCH="${BOOTBRANCH_BOARD:-"tag:v2023.04"}"
+		#
 		declare -g KERNEL_MAJOR_MINOR="6.5" # Major and minor versions of this kernel.
 		#declare -g KERNELBRANCH='branch:linux-6.4.y'
 		declare -g KERNELBRANCH='branch:master'
-		declare -g KERNELPATCHDIR="uefi-${LINUXFAMILY}-${BRANCH}" # Might be empty.
+		declare -g KERNELPATCHDIR="uefi-${LINUXFAMILY}-${BRANCH}" # Might be empty.		
 		;;
 esac
 
