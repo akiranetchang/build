@@ -1,0 +1,76 @@
+diff -Naur old/arch/riscv/boot/dts/sifive/fu740-c000.dtsi new/arch/riscv/boot/dts/sifive/fu740-c000.dtsi
+--- old/arch/riscv/boot/dts/sifive/fu740-c000.dtsi	2023-08-25 11:32:17.000000000 +0800
++++ new/arch/riscv/boot/dts/sifive/fu740-c000.dtsi	2023-09-05 14:01:11.696921044 +0800
+@@ -56,6 +56,11 @@
+ 			reg = <0x1>;
+ 			riscv,isa = "rv64imafdc";
+ 			tlb-split;
++			operating-points-v2 = <&cpu_opp>;
++			clocks = <&prci FU740_PRCI_CLK_COREPLL>;
++			clock-names = "corepll";
++			#cooling-cells = <2>;
++
+ 			cpu1_intc: interrupt-controller {
+ 				#interrupt-cells = <1>;
+ 				compatible = "riscv,cpu-intc";
+@@ -80,6 +85,11 @@
+ 			reg = <0x2>;
+ 			riscv,isa = "rv64imafdc";
+ 			tlb-split;
++			operating-points-v2 = <&cpu_opp>;
++			clocks = <&prci FU740_PRCI_CLK_COREPLL>;
++			clock-names = "corepll";
++			#cooling-cells = <2>;
++
+ 			cpu2_intc: interrupt-controller {
+ 				#interrupt-cells = <1>;
+ 				compatible = "riscv,cpu-intc";
+@@ -104,6 +114,11 @@
+ 			reg = <0x3>;
+ 			riscv,isa = "rv64imafdc";
+ 			tlb-split;
++			operating-points-v2 = <&cpu_opp>;
++			clocks = <&prci FU740_PRCI_CLK_COREPLL>;
++			clock-names = "corepll";
++			#cooling-cells = <2>;
++
+ 			cpu3_intc: interrupt-controller {
+ 				#interrupt-cells = <1>;
+ 				compatible = "riscv,cpu-intc";
+@@ -128,6 +143,11 @@
+ 			reg = <0x4>;
+ 			riscv,isa = "rv64imafdc";
+ 			tlb-split;
++			operating-points-v2 = <&cpu_opp>;
++			clocks = <&prci FU740_PRCI_CLK_COREPLL>;
++			clock-names = "corepll";
++			#cooling-cells = <2>;
++
+ 			cpu4_intc: interrupt-controller {
+ 				#interrupt-cells = <1>;
+ 				compatible = "riscv,cpu-intc";
+@@ -159,6 +179,24 @@
+ 			};
+ 		};
+ 	};
++
++	cpu_opp: opp-table-0 {
++			compatible = "operating-points-v2";
++			opp-shared;
++			opp-299000000 {
++					opp-hz = /bits/ 64 <299000000>;
++					opp-microvolt = <1040000>;
++			};
++			opp-598000000 {
++					opp-hz = /bits/ 64 <598000000>;
++					opp-microvolt = <1040000>;
++			};
++			opp-1196000000 {
++					opp-hz = /bits/ 64 <1196000000>;
++					opp-microvolt = <1040000>;
++			};
++	};
++
+ 	soc {
+ 		#address-cells = <2>;
+ 		#size-cells = <2>;
