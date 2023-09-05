@@ -77,7 +77,8 @@ case "${BRANCH}" in
 		#
 		declare -g KERNEL_MAJOR_MINOR="6.5" # Major and minor versions of this kernel.
 		#declare -g KERNELBRANCH='branch:linux-6.4.y'
-		declare -g KERNELBRANCH='branch:master'
+		#declare -g KERNELBRANCH='branch:master'
+		declare -g KERNELBRANCH='branch:linux-6.5.y'
 		declare -g KERNELPATCHDIR="uefi-${LINUXFAMILY}-${BRANCH}" # Might be empty.		
 		;;
 esac
